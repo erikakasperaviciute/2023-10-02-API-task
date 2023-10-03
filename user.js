@@ -22,6 +22,9 @@ async function init() {
   const userTitle = document.createElement("h1");
   userTitle.textContent = `${userId}. ${userName}`;
   const contactsInfoElement = document.createElement("div");
+  contactsInfoElement.style.display = "flex";
+  contactsInfoElement.style.flexDirection = "column";
+  contactsInfoElement.style.gap = "8px";
   const username = document.createElement("span");
   username.textContent = `Username: ${user.username}`;
   const userEmail = document.createElement("span");
