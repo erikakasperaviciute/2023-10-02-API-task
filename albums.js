@@ -1,8 +1,8 @@
-import { getAlbums } from "./getData.js";
+import navLinks from "./navigationLinks.js";
 import albumsList from "./albumsList.js";
 
 async function init() {
-  const albums = await getAlbums();
+  //   const albums = await getAlbums();
 
   const contentElement = document.querySelector("#content");
   const albumsListElement = await albumsList();
@@ -11,3 +11,4 @@ async function init() {
 }
 
 init();
+navLinks();

@@ -1,7 +1,7 @@
 import { getPosts } from "./getData.js";
 
 export default async function postsList() {
-  const posts = await getPosts();
+  const posts = await getPosts("&_embed=comments");
 
   const postsWrapper = document.createElement("div");
   postsWrapper.classList.add("posts-wrapper");
@@ -18,14 +18,17 @@ export default async function postsList() {
     const postItem = document.createElement("li");
     const postLink = document.createElement("a");
     const userLink = document.createElement("a");
+    const totalComments = document.createElement("span");
+
     userLink.textContent = userName;
     userLink.href = "./user.html?user_id=" + post.user.id;
     postLink.textContent = `${post.id}. ${post.title}.`;
     postLink.href = "./post.html?post_id=" + post.id;
+    totalComments.textContent = `(${post.comments.length} comments)`;
 
     postItem.append(postLink, " Author: ", userLink);
 
-    postsListElement.append(postItem);
+    postsListElement.append(postItem, totalComments);
   });
 
   postsWrapper.append(sectionTitle, postsListElement);

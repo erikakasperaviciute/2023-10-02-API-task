@@ -1,13 +1,15 @@
-export async function getUsers() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users/");
+export async function getUsers(params = "") {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/users/" + params
+  );
   const users = await res.json();
 
   return users;
 }
 
-export async function getPosts() {
+export async function getPosts(params = "") {
   const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_limit=50&_expand=user"
+    "https://jsonplaceholder.typicode.com/posts?_limit=50&_expand=user" + params
   );
   const posts = await res.json();
 
@@ -30,13 +32,4 @@ export async function getPhotos() {
   const photos = await res.json();
 
   return photos;
-}
-
-export async function getAlbumPhotos(albumId) {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/photos?_limit=50&_albumId=${albumId}"
-  );
-  const albumPhotos = await res.json();
-
-  return albumPhotos;
 }

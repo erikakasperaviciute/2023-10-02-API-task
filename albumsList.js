@@ -29,7 +29,7 @@ export default async function albumsList() {
     albumLink.href = "./album.html?album_id=" + album.id;
     photosInTotal.textContent = `(${totalPhotos} photos)`;
     imgElement.setAttribute("src", album.photos[0].thumbnailUrl);
-    imgLink.href = "./albumPhotos.html?album_id=" + album.id;
+    imgLink.href = "./album.html?album_id=" + album.id;
 
     imgLink.append(imgElement);
 

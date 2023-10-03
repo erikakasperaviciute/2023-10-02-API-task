@@ -1,5 +1,6 @@
 import { getPosts } from "./getData.js";
 import postsList from "./postsList.js";
+import navLinks from "./navigationLinks.js";
 
 async function init() {
   const posts = await getPosts();
@@ -11,3 +12,4 @@ async function init() {
 }
 
 init();
+navLinks();
