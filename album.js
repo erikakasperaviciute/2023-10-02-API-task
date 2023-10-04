@@ -1,4 +1,4 @@
-async function init() {
+async function getAlbum() {
   const queryParams = location.search;
   const urlParams = new URLSearchParams(queryParams);
   const albumId = urlParams.get("album_id");
@@ -48,4 +48,4 @@ async function init() {
   contentElement.append(albumTitle, author, galleryElement);
 }
 
-init();
+getAlbum();
