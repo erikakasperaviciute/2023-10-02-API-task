@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="photoswipe/dist/photoswipe.css">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
 
 </head>
 
@@ -21,6 +21,19 @@
     </nav>
     <div id="content"></div>
     <script type="module" src="album.js"></script>
+    <script type="module">
+        import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: "#my-gallery",
+            children: "a",
+            pswpModule: () => import("https://unpkg.com/photoswipe"),
+        });
+
+        lightbox.init();
+    </script>
+
+
 
 
 

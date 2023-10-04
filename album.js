@@ -23,16 +23,29 @@ async function init() {
   authorLink.textContent = userName;
   authorLink.href = "./user.html?user_id=" + userId;
 
+  const galleryElement = document.createElement("div");
+  galleryElement.id = "my-gallery";
+  galleryElement.classList.add("pswp-gallery");
+
+  const figureElement = document.createElement("figure");
+
+  galleryElement.append(figureElement);
+
   allAlbumPhotos.forEach((photo) => {
+    const imgLink = document.createElement("a");
+    imgLink.href = photo.url;
+    imgLink.setAttribute("dataSize", "width-1xheight-1");
+    imgLink.dataset.pswpHeight = "600";
+    imgLink.dataset.pswpWidth = "600";
     const imgElement = document.createElement("img");
     imgElement.setAttribute("src", photo.thumbnailUrl);
-    console.log(imgElement);
-    contentElement.after(imgElement);
+    imgLink.append(imgElement);
+    figureElement.append(imgLink);
   });
 
   author.append("Author: ", authorLink);
 
-  contentElement.append(albumTitle, author);
+  contentElement.append(albumTitle, author, galleryElement);
 }
 
 init();
